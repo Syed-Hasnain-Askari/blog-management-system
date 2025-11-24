@@ -1,8 +1,5 @@
 import { useState } from "react";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import Blogs from "../components/ui/blogs";
-import SearchBox from "@/components/SearchBox";
 import StatsCards from "@/components/CardStats";
 import { useEffect } from "react";
 import api from "@/utils/api";

@@ -11,6 +11,7 @@ import ProtectedRoute from "./route/ProtectedRoute";
 import PublicRoute from "./route/PublicRoute";
 import AllPosts from "./pages/AllPosts";
 import MyPost from "./pages/MyPost";
+import EditPost from "./pages/EditPost";
 
 function App() {
 	return (
@@ -24,6 +25,7 @@ function App() {
 						<Route path="/post-detail/:id" element={<BlogDetails />} />
 						<Route path="/all-posts/" element={<AllPosts />} />
 						<Route path="/my-posts/" element={<MyPost />} />
+						<Route path="/edit-post/:id" element={<EditPost />} />
 					</Route>
 				</Route>
 

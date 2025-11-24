@@ -67,7 +67,7 @@ export default function AllPosts() {
 				<div className="w-full flex justify-center items-center">
 					Loading...
 				</div>
-			) : (
+			) : blogs.length > 0 ? (
 				<div className="w-full flex justify-center">
 					<div className="max-w-6xl w-full px-4">
 						<Blogs title={"Blog Posts"} blog={blogs} />
@@ -80,6 +80,10 @@ export default function AllPosts() {
 							/>
 						</div>
 					</div>
+				</div>
+			) : (
+				<div className="w-full flex justify-center items-center">
+					No posts found.
 				</div>
 			)}
 		</>

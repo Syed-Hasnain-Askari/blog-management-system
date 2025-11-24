@@ -38,10 +38,12 @@ const getAllPosts = async (req, res) => {
 			// Fields to return
 			{
 				$project: {
+					_id: 1,
 					title: 1,
 					content: 1,
 					tags: 1,
 					createdAt: 1,
+					status: 1,
 					"result.username": 1,
 					"result._id": 1
 				}
@@ -203,6 +205,7 @@ const getPostById = async (req, res) => {
 					content: 1,
 					tags: 1,
 					createdAt: 1,
+					status: 1,
 					user: {
 						username: "$result.username"
 					}
@@ -242,11 +245,47 @@ const createPost = async (req, res) => {
 		res.status(500).json({ message: "Something went wrong." });
 	}
 };
+const deletePostById = async (req, res) => {
+	try {
+		const postId = req.params.id;
+		console.log("Delete request params:", req.params);
+		const deletedPost = await Post.findByIdAndDelete(postId);
+		if (!deletedPost) {
+			return res.status(404).json({ message: "Post not found" });
+		}
+		res.status(200).json({ message: "Post deleted successfully" });
+	} catch (error) {
+		console.error("Error deleting post:", error);
+		res.status(500).json({ message: "Something went wrong." });
+	}
+};
+const editPostById = async (req, res) => {
+	try {
+		const postId = req.params.id;
+		const { title, content, tags, status } = req.body;
+		const updatedPost = await Post.findByIdAndUpdate(
+			postId,
+			{ title, content, tags, status },
+			{ new: true }
+		);
+		if (!updatedPost) {
+			return res.status(404).json({ message: "Post not found" });
+		}
+		res
+			.status(200)
+			.json({ message: "Post updated successfully", data: updatedPost });
+	} catch (error) {
+		console.error("Error updating post:", error);
+		res.status(500).json({ message: "Something went wrong." });
+	}
+};
 module.exports = {
 	getAllPosts,
 	getPostsByUserId,
 	getPostById,
 	getAllMyPosts,
 	createPost,
-	getLatestPosts
+	getLatestPosts,
+	deletePostById,
+	editPostById
 };

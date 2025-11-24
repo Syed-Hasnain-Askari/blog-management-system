@@ -8,5 +8,7 @@ router.post("/posts/my", verifyToken, post.getAllMyPosts);
 router.get("/posts/user/:id", verifyToken, post.getPostsByUserId);
 router.get("/posts/:id", verifyToken, post.getPostById);
 router.post("/posts", verifyToken, post.createPost);
+router.delete("/posts/:id", verifyToken, post.deletePostById);
+router.put("/posts/:id", verifyToken, post.editPostById);
 // router.post("/admin-login", auth.adminLogin);
 module.exports = router;
