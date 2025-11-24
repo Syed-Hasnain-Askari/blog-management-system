@@ -39,8 +39,8 @@ app.use((req, res, next) => {
 });
 // Routes
 // test endpoint
-app.get("/test", (req, res) => {
-	res.json({ message: "CORS works on Vercel! 🎉" });
+app.get("/", (req, res) => {
+	res.send("backend is running");
 });
 
 app.use("/api/auth/", auth);

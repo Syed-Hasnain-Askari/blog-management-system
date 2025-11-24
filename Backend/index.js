@@ -1,10 +1,10 @@
-require("dotenv").config();
+const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const http = require("http");
 const app = require("./app");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-
+dotenv.config();
 const port = process.env.PORT || 3977;
 const DB = process.env.CONNECTION_STRING;
 
