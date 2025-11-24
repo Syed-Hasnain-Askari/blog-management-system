@@ -16,10 +16,7 @@ mongoose
 		app.use(cors());
 		app.use(bodyParser.json());
 		app.use(bodyParser.urlencoded({ extended: false }));
-
-		http.createServer(app).listen(port, () => {
-			console.log(`Server is running on port ${port}`);
-		});
+		app.listen(3000, () => console.log("Server running"));
 	})
 	.catch((err) => {
 		console.error("MongoDB connection error:", err);
