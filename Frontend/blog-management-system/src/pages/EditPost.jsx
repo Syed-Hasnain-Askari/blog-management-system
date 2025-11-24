@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Field, FieldDescription } from "@/components/ui/field";
 import api from "@/utils/api";
 import { toast } from "sonner";
-import { useParams } from "react-router-dom";
+import { redirect, useParams } from "react-router-dom";
 
 export default function EditPost() {
 	const params = useParams();
@@ -68,6 +68,7 @@ export default function EditPost() {
 				setContent("");
 				setTags([]);
 				setStatus("published");
+				window.location.href = "/all-posts";
 			}
 		} catch (err) {
 			setLoading(false);
