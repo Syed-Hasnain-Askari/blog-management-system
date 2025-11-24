@@ -1,0 +1,12 @@
+const express = require("express");
+const router = express.Router();
+const post = require("../controller/post");
+const verifyToken = require("../middleware/verifyToken");
+router.get("/posts", verifyToken, post.getAllPosts);
+router.get("/posts/latest", verifyToken, post.getLatestPosts);
+router.post("/posts/my", verifyToken, post.getAllMyPosts);
+router.get("/posts/user/:id", verifyToken, post.getPostsByUserId);
+router.get("/posts/:id", verifyToken, post.getPostById);
+router.post("/posts", verifyToken, post.createPost);
+// router.post("/admin-login", auth.adminLogin);
+module.exports = router;

@@ -1,0 +1,38 @@
+# -------------------------
+# Global
+# -------------------------
+node_modules/
+.env
+.env.local
+.env.*        # covers .env.production, .env.development, etc.
+*.log
+npm-debug.log*
+package-lock.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# -------------------------
+# Backend
+# -------------------------
+Backend/node_modules/
+Backend/.env
+Backend/.env.local
+Backend/.env.*
+
+
+# -------------------------
+# Frontend
+# -------------------------
+Frontend/node_modules/
+Frontend/.env
+Frontend/.env.local
+Frontend/.env.*
+.next/
+out/
+dist/
+
+# Build & cache
+.cache/
+.vite/
