@@ -18,7 +18,10 @@ const stats = require("./routes/status");
 
 // Manual CORS fix for Vercel serverless functions
 app.use((req, res, next) => {
-	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader(
+		"Access-Control-Allow-Origin",
+		"https://dashing-kitten-9ae511.netlify.app"
+	);
 	res.setHeader(
 		"Access-Control-Allow-Headers",
 		"Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
